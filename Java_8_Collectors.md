@@ -122,15 +122,82 @@ String names = students.stream().map(Student::getName).collect(joining(","));
 - arg3 - BinaryOperator that aggregates two item into a single value
 
 ```java
-long total = students.stream()
-					.collect(reducing(0,Student::getMarks,(i,j) -> i + j));
+long total = students.stream().collect(reducing(0,Student::getMarks,(i,j) -> i + j));
 ```
 
+- *Can use Aggregating function of Integer class*
 
+```java
+int total = students.stream().collect(reducing(0,Student::getMarks,Integer::sum));
+```
 
+- *Can use IntStream to get the same result*
+```java
+int total = students.stream().map(Student::getMarks).reduce(Integer::sum).get();  
+// or  
+int total = students.stream().mapToInt(Student::getMarks).sum();
+```
 *Find highest marks obtained in the class*
 - arg - comparator to compare marks
 
 ```java
 Optional<Student> studentScoredHighestMarks = students.stream().collect(reducing((d1,d2) -> d1.getMarks() > d2.getMarks() ? d1: d2));
 ```
+---
+## Grouping
+---
+### Student list to learn grouping
+```java
+List<Student> students = new ArrayList<>();  
+students.add(new Student("x", 58));  
+students.add(new Student("Y", 68));  
+students.add(new Student("A", 68));  
+students.add(new Student("B", 77));  
+students.add(new Student("C", 58));  
+students.add(new Student("E", 26));  
+students.add(new Student("F", 77));  
+students.add(new Student("G", 96));  
+students.add(new Student("I", 93));
+```
+
+### Single Level Grouping
+*Group students by their obtained marks*
+
+```java
+Map<Integer, List<Student>> map = students.stream().collect(groupingBy(Student::getMarks));
+```
+
+#### Create a enum Performance class
+```java
+enum Performance {  
+    VERY_POOR, POOR, GOOD, EXCELLENT;  
+}
+```
+
+*Group students by their performance*
+
+```java
+Map<Performance, List<Student>> map = students.stream()  
+        .collect(groupingBy(student -> {  
+            int marks = student.getMarks();  
+            if (marks <= 30) {  
+                return Performance.VERY_POOR;  
+            } else if (marks < 50 && marks > 30) {  
+                return Performance.POOR;  
+            } else if (marks < 70 && marks > 50) {  
+                return Performance.GOOD;  
+            } else {  
+                return Performance.EXCELLENT;  
+            }  
+        }));
+```
+
+>output
+---
+	EXCELLENT-[Student{name='B', marks=77}, Student{name='F', marks=77}, Student{name='G', marks=96}, Student{name='I', marks=93}]
+	GOOD-[Student{name='x', marks=58}, Student{name='Y', marks=68}, Student{name='A', marks=68}, Student{name='C', marks=58}]
+	VERY_POOR-[Student{name='E', marks=26}]
+
+
+### Multi-Level Grouping
+
