@@ -228,11 +228,11 @@ map.keySet().stream()
 
 >Output
 
-96-{EXCELLENT=[Student{name='G', marks=96}]}
-68-{GOOD=[Student{name='Y', marks=68}, Student{name='A', marks=68}]}
-26-{VERY_POOR=[Student{name='E', marks=26}]}
-58-{GOOD=[Student{name='x', marks=58}, Student{name='C', marks=58}]}
-93-{EXCELLENT=[Student{name='I', marks=93}]}
+96-{EXCELLENT=[Student{name='G', marks=96}]}\
+68-{GOOD=[Student{name='Y', marks=68}, Student{name='A', marks=68}]}\
+26-{VERY_POOR=[Student{name='E', marks=26}]}\
+58-{GOOD=[Student{name='x', marks=58}, Student{name='C', marks=58}]}\
+93-{EXCELLENT=[Student{name='I', marks=93}]}\
 77-{EXCELLENT=[Student{name='B', marks=77}, Student{name='F', marks=77}]}
 
 ### Collecting Data in Subgroups
@@ -260,8 +260,8 @@ map.keySet().stream()
 
 >Output
 
-EXCELLENT-4
-GOOD-4
+EXCELLENT-4\
+GOOD-4\
 VERY_POOR-1
 
 *Get the Student scored highest marks in each performace category*
@@ -288,8 +288,8 @@ map.keySet().stream()
 
 >Output
 
-EXCELLENT-Optional[Student{name='G', marks=96}]
-GOOD-Optional[Student{name='Y', marks=68}]
+EXCELLENT-Optional[Student{name='G', marks=96}]\
+GOOD-Optional[Student{name='Y', marks=68}]\
 VERY_POOR-Optional[Student{name='E', marks=26}]
 
 *Get rid of Optional in this case (collectingAndThen)*
@@ -316,8 +316,8 @@ map.keySet().stream()
 
 >Output
 
-EXCELLENT-Student{name='G', marks=96}
-GOOD-Student{name='Y', marks=68}
+EXCELLENT-Student{name='G', marks=96}\
+GOOD-Student{name='Y', marks=68}\
 VERY_POOR-Student{name='E', marks=26}
 
 *Sum of marks obtained by students in each performace category*
@@ -344,7 +344,7 @@ map.keySet().stream()
 
 >Output
 
-EXCELLENT-343
-GOOD-252
+EXCELLENT-343\
+GOOD-252\
 VERY_POOR-26
 
