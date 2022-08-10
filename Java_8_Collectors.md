@@ -344,7 +344,7 @@ map.keySet().stream()
 
 >Output
 
-EXCELLENT-343\
-GOOD-252\
+EXCELLENT-343
+GOOD-252
 VERY_POOR-26
 
