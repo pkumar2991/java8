@@ -228,7 +228,7 @@ map.keySet().stream()
 
 >Output
 
->96-{EXCELLENT=[Student{name='G', marks=96}]}
+96-{EXCELLENT=[Student{name='G', marks=96}]}
 68-{GOOD=[Student{name='Y', marks=68}, Student{name='A', marks=68}]}
 26-{VERY_POOR=[Student{name='E', marks=26}]}
 58-{GOOD=[Student{name='x', marks=58}, Student{name='C', marks=58}]}
@@ -260,7 +260,7 @@ map.keySet().stream()
 
 >Output
 
->EXCELLENT-4
+EXCELLENT-4
 GOOD-4
 VERY_POOR-1
 
@@ -288,7 +288,7 @@ map.keySet().stream()
 
 >Output
 
->EXCELLENT-Optional[Student{name='G', marks=96}]
+EXCELLENT-Optional[Student{name='G', marks=96}]
 GOOD-Optional[Student{name='Y', marks=68}]
 VERY_POOR-Optional[Student{name='E', marks=26}]
 
@@ -316,7 +316,7 @@ map.keySet().stream()
 
 >Output
 
->EXCELLENT-Student{name='G', marks=96}
+EXCELLENT-Student{name='G', marks=96}
 GOOD-Student{name='Y', marks=68}
 VERY_POOR-Student{name='E', marks=26}
 
@@ -344,7 +344,7 @@ map.keySet().stream()
 
 >Output
 
->EXCELLENT-343
+EXCELLENT-343
 GOOD-252
 VERY_POOR-26
 
