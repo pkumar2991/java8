@@ -143,9 +143,8 @@ int total = students.stream().mapToInt(Student::getMarks).sum();
 ```java
 Optional<Student> studentScoredHighestMarks = students.stream().collect(reducing((d1,d2) -> d1.getMarks() > d2.getMarks() ? d1: d2));
 ```
----
+
 ## Grouping
----
 ### Student list to learn grouping
 ```java
 List<Student> students = new ArrayList<>();  
@@ -190,14 +189,162 @@ Map<Performance, List<Student>> map = students.stream()
                 return Performance.EXCELLENT;  
             }  
         }));
+// Print the map
+map.keySet().stream()  
+        .forEach(performance -> {  
+            System.out.println(performance + "-" + map.get(performance));  
+        });
 ```
 
 >output
----
-	EXCELLENT-[Student{name='B', marks=77}, Student{name='F', marks=77}, Student{name='G', marks=96}, Student{name='I', marks=93}]
+
+>EXCELLENT-[Student{name='B', marks=77}, Student{name='F', marks=77}, Student{name='G', marks=96}, Student{name='I', marks=93}]
 	GOOD-[Student{name='x', marks=58}, Student{name='Y', marks=68}, Student{name='A', marks=68}, Student{name='C', marks=58}]
 	VERY_POOR-[Student{name='E', marks=26}]
 
 
 ### Multi-Level Grouping
+*Group students based on marks and then on their performance category*
+
+```java
+Map<Integer, Map<Performance, List<Student>>> map = students.stream()  
+        .collect(groupingBy(Student::getMarks, groupingBy(student -> {  
+            int marks = student.getMarks();  
+            if (marks <= 30) {  
+                return Performance.VERY_POOR;  
+            } else if (marks < 50 && marks > 30) {  
+                return Performance.POOR;  
+            } else if (marks < 70 && marks > 50) {  
+                return Performance.GOOD;  
+            } else {  
+                return Performance.EXCELLENT;  
+            }  
+        })));  
+map.keySet().stream()  
+        .forEach(performance -> {  
+            System.out.println(performance + "-" + map.get(performance));  
+        });
+```
+
+>Output
+
+>96-{EXCELLENT=[Student{name='G', marks=96}]}
+68-{GOOD=[Student{name='Y', marks=68}, Student{name='A', marks=68}]}
+26-{VERY_POOR=[Student{name='E', marks=26}]}
+58-{GOOD=[Student{name='x', marks=58}, Student{name='C', marks=58}]}
+93-{EXCELLENT=[Student{name='I', marks=93}]}
+77-{EXCELLENT=[Student{name='B', marks=77}, Student{name='F', marks=77}]}
+
+### Collecting Data in Subgroups
+*Count the number of students in each performance category*
+
+```java
+Map<Performance, Long> map = students.stream()  
+        .collect(groupingBy(student -> {  
+            int marks = student.getMarks();  
+            if (marks <= 30) {  
+                return Performance.VERY_POOR;  
+            } else if (marks < 50 && marks > 30) {  
+                return Performance.POOR;  
+            } else if (marks < 70 && marks > 50) {  
+                return Performance.GOOD;  
+            } else {  
+                return Performance.EXCELLENT;  
+            }  
+        }, counting()));  
+map.keySet().stream()  
+        .forEach(performance -> {  
+            System.out.println(performance + "-" + map.get(performance));  
+        });
+```
+
+>Output
+
+>EXCELLENT-4
+GOOD-4
+VERY_POOR-1
+
+*Get the Student scored highest marks in each performace category*
+
+```java
+Map<Performance, Optional<Student>> map = students.stream()  
+        .collect(groupingBy(student -> {  
+            int marks = student.getMarks();  
+            if (marks <= 30) {  
+                return Performance.VERY_POOR;  
+            } else if (marks < 50 && marks > 30) {  
+                return Performance.POOR;  
+            } else if (marks < 70 && marks > 50) {  
+                return Performance.GOOD;  
+            } else {  
+                return Performance.EXCELLENT;  
+            }  
+        }, maxBy(Comparator.comparingInt(Student::getMarks))));  
+map.keySet().stream()  
+        .forEach(performance -> {  
+            System.out.println(performance + "-" + map.get(performance));  
+        });
+```
+
+>Output
+
+>EXCELLENT-Optional[Student{name='G', marks=96}]
+GOOD-Optional[Student{name='Y', marks=68}]
+VERY_POOR-Optional[Student{name='E', marks=26}]
+
+*Get rid of Optional in this case (collectingAndThen)*
+
+```java
+Map<Performance, Student> map = students.stream()  
+        .collect(groupingBy(student -> {  
+            int marks = student.getMarks();  
+            if (marks <= 30) {  
+                return Performance.VERY_POOR;  
+            } else if (marks < 50 && marks > 30) {  
+                return Performance.POOR;  
+            } else if (marks < 70 && marks > 50) {  
+                return Performance.GOOD;  
+            } else {  
+                return Performance.EXCELLENT;  
+            }  
+        }, collectingAndThen(maxBy(Comparator.comparingInt(Student::getMarks)), Optional::get)));  
+map.keySet().stream()  
+        .forEach(performance -> {  
+            System.out.println(performance + "-" + map.get(performance));  
+        });
+```
+
+>Output
+
+>EXCELLENT-Student{name='G', marks=96}
+GOOD-Student{name='Y', marks=68}
+VERY_POOR-Student{name='E', marks=26}
+
+*Sum of marks obtained by students in each performace category*
+
+```java
+Map<Performance, Integer> map = students.stream()  
+        .collect(groupingBy(student -> {  
+            int marks = student.getMarks();  
+            if (marks <= 30) {  
+                return Performance.VERY_POOR;  
+            } else if (marks < 50 && marks > 30) {  
+                return Performance.POOR;  
+            } else if (marks < 70 && marks > 50) {  
+                return Performance.GOOD;  
+            } else {  
+                return Performance.EXCELLENT;  
+            }  
+        }, summingInt(Student::getMarks)));  
+map.keySet().stream()  
+        .forEach(performance -> {  
+            System.out.println(performance + "-" + map.get(performance));  
+        });
+```
+
+>Output
+
+>EXCELLENT-343
+GOOD-252
+VERY_POOR-26
 
