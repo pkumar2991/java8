@@ -20,8 +20,8 @@ System.out.println(ss);
 System.out.println(ss.first());
 ```
 
-`output:`
-[29, 21, 20, 19]
+`output:`  
+[29, 21, 20, 19]  
 29
 
 - *headSet(E toElement)* - Returns a view of the portion of this set whose elements are strictly less than toElement (Follow Natural ordering)
@@ -36,8 +36,8 @@ System.out.println(ss);
 System.out.println(ss.headSet(21));
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 [19, 20]
 
 
@@ -53,8 +53,8 @@ System.out.println(ss);
 System.out.println(ss.last());
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 [29]
 
 - *subSet* - Returns a view of the portion of this set whose elements range from fromElement, inclusive, toElement, exclusive.
@@ -70,8 +70,8 @@ SortedSet<Integer> subset = ss.subSet(20, 29);
 System.out.println(subset);
 ```
 
-`Output`:
-[19, 20, 21, 29]
+`Output`:  
+[19, 20, 21, 29]  
 [20, 21]
 
 - *tailSet(E fromElement)* - Returns a view of the portion of this set whose elements are greater than or equal to fromElement.
@@ -86,6 +86,6 @@ System.out.println(ss);
 System.out.println(ss.tailSet(20));
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 [20, 21, 29]
