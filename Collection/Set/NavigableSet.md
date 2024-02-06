@@ -20,8 +20,8 @@ System.out.println(ns);
 System.out.println(ns.ceiling(18));
 ```
 
-`Output`:
-[19, 20, 21, 29]
+`Output`:  
+[19, 20, 21, 29]  
 19
 
 - *descendingIterator()* - Returns an iterator over the elements in this set, in descending order.
@@ -40,8 +40,8 @@ for (Iterator<Integer> it = integerIterator; it.hasNext(); ) {
 }
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 29 21 20 19 
 
 - *descendingSet()* - Returns a reverse order view of the elements contained in this set.
@@ -58,8 +58,8 @@ NavigableSet<Integer> integers = ns.descendingSet();
 System.out.println(integers);
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 [29, 21, 20, 19]
 
 - *floor(E e)* - Returns the greatest element in this set **less than or equal to the given element** , or null if there is no such element.
@@ -74,8 +74,8 @@ System.out.println(ns);
 System.out.println(ns.floor(27));
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 21
 
 - *headset(E toElement, boolean inclusive)* - Returns a view of the portion of this set whose elements are less than (or equal to, if `inclusive` is true) `toElement`.
@@ -92,9 +92,9 @@ System.out.println(ns.headSet(29,true));
 ```
 
 
-`Output:`
-[19, 20, 21, 29]
-[19, 20, 21]
+`Output:`  
+[19, 20, 21, 29]  
+[19, 20, 21]  
 [19, 20, 21, 29]
 
 - *higher(E element)* - Returns the least element in this set strictly greater than the given element, or `null` if there is no such element.
@@ -109,8 +109,8 @@ System.out.println(ns);
 System.out.println(ns.higher(20));
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 21
 
 - *lower(E e)* -   Returns the greatest element in this set strictly less than the given element, or `null` if there is no such element.
@@ -125,8 +125,8 @@ System.out.println(ns);
 System.out.println(ns.lower(22));
 ```
 
-`Output:`
-[19, 20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
 21
 
 - *pollFirst()* - Retrieves and removes the first (lowest) element, or returns `null` if this set is empty.
@@ -142,10 +142,10 @@ System.out.println(ns.pollFirst());
 System.out.println(ns);
 ```
 
-`Output:`
-[19, 20, 21, 29]
-19
-[20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
+19  
+[20, 21, 29]  
 
 - *pollLast()* - Retrieves and removes the last (highest) element, or returns `null` if this set is empty.
 
@@ -160,10 +160,10 @@ System.out.println(ns.pollLast());
 System.out.println(ns);
 ```
 
-`Output:`
-[19, 20, 21, 29]
-29
-[19, 20, 21]
+`Output:`  
+[19, 20, 21, 29]  
+29  
+[19, 20, 21]  
 
 - *subSet(E fromElt, boolean fromInclusinve, E toElt, boolean toInclusinve)* - Returns a view of the portion of this set whose elements range from `fromElement` to `toElement`.
 
@@ -180,12 +180,12 @@ System.out.println(ns.subSet(20,false,29,true));
 System.out.println(ns.subSet(20,true,29,true));
 ```
 
-`Output:`
-[19, 20, 21, 29]
-[21]
-[20, 21]
-[21, 29]
-[20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
+[21]  
+[20, 21]  
+[21, 29]  
+[20, 21, 29]  
 
 - *tailSet(E fromElt, boolean inclusive)* - Returns a view of the portion of this set whose elements are greater than (or equal to, if `inclusive` is true) `fromElement`.
 
@@ -200,7 +200,7 @@ System.out.println(ns.tailSet(20,false));
 System.out.println(ns.tailSet(20,true));
 ```
 
-`Output:`
-[19, 20, 21, 29]
-[21, 29]
-[20, 21, 29]
+`Output:`  
+[19, 20, 21, 29]  
+[21, 29]  
+[20, 21, 29]  
