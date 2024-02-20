@@ -46,4 +46,51 @@ Returns:
 	true if this set did not already contain the specified element
 Throws:
 	ClassCastException – if the specified object cannot be compared with the elements currently in this set
-	NullPointerException – if the specified element is null and this set uses natural ordering, or its comparator does not permit null elements`
+	NullPointerException – if the specified element is null and this set uses natural ordering, or its comparator does not permit null elements
+
+## How to remove in TreeSet
+
+```java
+public boolean remove(Object o) {  
+    return m.remove(o)==PRESENT;  
+}
+```
+
+## Time Complexity
+O(log n) - For add, remove and contains
+
+## Clone in TreeSet
+
+Shallow copy
+
+```java
+public Object clone() {  
+    TreeSet<E> clone;  
+    try {  
+        clone = (TreeSet<E>) super.clone();  
+    } catch (CloneNotSupportedException e) {  
+        throw new InternalError(e);  
+    }  
+  
+    clone.m = new TreeMap<>(m);  
+    return clone;  
+}
+```
+
+## Not allow to store null value
+
+```java
+TreeSet<Integer> treeSet = new TreeSet<>();  
+treeSet.add(null);
+```
+
+`Exception:`
+```java
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Comparable.compareTo(Object)" because "k1" is null
+	at java.base/java.util.TreeMap.compare(TreeMap.java:1569)
+	at java.base/java.util.TreeMap.addEntryToEmptyMap(TreeMap.java:776)
+	at java.base/java.util.TreeMap.put(TreeMap.java:785)
+	at java.base/java.util.TreeMap.put(TreeMap.java:534)
+	at java.base/java.util.TreeSet.add(TreeSet.java:255)
+```
+
