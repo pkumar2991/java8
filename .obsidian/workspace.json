@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Collection/Set/Implementations/HashSet.md",
+                "file": "Collection/Set/Implementations/LinkedHashSet(C).md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Collection/Set/Implementations/HashSet.md",
+                "file": "Collection/Set/Implementations/LinkedHashSet(C).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Collection/Set/Implementations/HashSet.md",
+                "file": "Collection/Set/Implementations/LinkedHashSet(C).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Collection/Set/Implementations/HashSet.md"
+                "file": "Collection/Set/Implementations/LinkedHashSet(C).md"
               }
             }
           }
@@ -156,9 +156,10 @@
   },
   "active": "1d67c133ee7db912",
   "lastOpenFiles": [
-    "Untitled.md",
-    "Collection/Set/Implementations/HashSet.md",
+    "Collection/Set/Implementations/HashSet(C).md",
+    "Collection/Set/Implementations/LinkedHashSet(C).md",
     "Collection/Set/Implementations/TreeSet - (C).md",
+    "Untitled.md",
     "Collection/Set/Implementations",
     "Collection/Set/Sorted Set - (I).md",
     "Collection/Set/NavigableSet - (I).md",
