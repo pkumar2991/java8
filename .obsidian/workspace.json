@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Collection/Map/SortedMap(I).md",
-                "mode": "source",
+                "file": "Collection/Map/Map (I).md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Collection/Map/SortedMap(I).md",
+                "file": "Collection/Map/Map (I).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Collection/Map/SortedMap(I).md",
+                "file": "Collection/Map/Map (I).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Collection/Map/SortedMap(I).md"
+                "file": "Collection/Map/Map (I).md"
               }
             }
           }
@@ -156,8 +156,8 @@
   },
   "active": "1d67c133ee7db912",
   "lastOpenFiles": [
-    "Collection/Map/Map (I).md",
     "Collection/Map/SortedMap(I).md",
+    "Collection/Map/Map (I).md",
     "Java_8_Collectors.md",
     "Java_8_Date_Time.md",
     "Collection/Set/Implementations/ConcurrentSkipListSet.md",
